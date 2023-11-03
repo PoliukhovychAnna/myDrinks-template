@@ -1,25 +1,25 @@
 // import { getUserDrinks } from 'pages/MyDrinksPage';
 import styles from './DrinksList.module.css';
 import data from '../../db/recipes.json';
-import { DrinkItem } from './DrinkItem';
+import { DrinksListItem } from './DrinksListItem';
 
-export const DrinksList = () => {
+export function DrinksList() {
   return (
-    <div>
+    <div className={styles.myDrinkListWrapper}>
       <ul className={styles.myDrinksList}>
         {data.map(({ _id, drink, alcoholic, drinkThumb, description }) => {
           return (
-            <DrinkItem
+            <DrinksListItem
               className
               key={_id.$oid}
               alcoholic={alcoholic}
               picture={drinkThumb}
               title={drink}
               alt={description}
-            ></DrinkItem>
+            />
           );
         })}
       </ul>
     </div>
   );
-};
+}
